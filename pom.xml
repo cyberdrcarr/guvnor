@@ -13,6 +13,7 @@
 
   <groupId>org.drools</groupId>
   <artifactId>guvnor</artifactId>
+  <version>5.5.1-SG</version>
   <packaging>pom</packaging>
 
   <name>Guvnor multiproject</name>

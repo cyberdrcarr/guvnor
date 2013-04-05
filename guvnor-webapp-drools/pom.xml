@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.drools</groupId>
     <artifactId>guvnor</artifactId>
-    <version>5.5.1-SNAPSHOT</version>
+    <version>5.5.1-SG</version>
   </parent>
 
   <artifactId>guvnor-webapp-drools</artifactId>
@@ -348,10 +348,12 @@
     <dependency>
       <groupId>org.drools</groupId>
       <artifactId>guvnor-api</artifactId>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.drools</groupId>
       <artifactId>guvnor-repository</artifactId>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.drools</groupId>
@@ -360,6 +362,7 @@
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-bpmn2</artifactId>
+      <version>5.4.1-SG</version>
     </dependency>
     <dependency>
       <groupId>org.drools</groupId>
@@ -380,10 +383,12 @@
     <dependency>
       <groupId>org.drools</groupId>
       <artifactId>droolsjbpm-ide-common</artifactId>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.drools</groupId>
       <artifactId>guvnor-webapp-core</artifactId>
+      <version>${project.version}</version>
     </dependency>
     
     <dependency>
@@ -406,6 +411,7 @@
     <dependency>
       <groupId>org.drools</groupId>
       <artifactId>guvnor-webapp-core</artifactId>
+      <version>${project.version}</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>

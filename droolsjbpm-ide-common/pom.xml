@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.drools</groupId>
     <artifactId>guvnor</artifactId>
-    <version>5.5.1-SNAPSHOT</version>
+    <version>5.5.1-SG</version>
   </parent>
 
   <artifactId>droolsjbpm-ide-common</artifactId>
@@ -18,6 +18,7 @@
     <dependency>
       <groupId>org.drools</groupId>
       <artifactId>guvnor-api</artifactId>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.drools</groupId>
