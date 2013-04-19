@@ -205,6 +205,7 @@
     <servlet-name>droolsService</servlet-name>
     <servlet-class>org.drools.guvnor.server.DroolsServiceServlet</servlet-class>
   </servlet>
+  <servlet>
     <servlet-name>OWLFileServlet</servlet-name>
     <servlet-class>org.drools.guvnor.server.files.drools.OWLFileServlet</servlet-class>
   </servlet>
