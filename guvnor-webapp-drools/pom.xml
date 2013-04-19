@@ -475,7 +475,7 @@
     <dependency>
       <groupId>dom4j</groupId>
       <artifactId>dom4j</artifactId>
-      <scope>test</scope>
+      <!--scope>test</scope-->
     </dependency>
 
     <dependency>
