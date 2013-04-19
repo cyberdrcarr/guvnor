@@ -25,6 +25,8 @@ public class SecurityFilter implements Filter {
     private FilterConfig filterConfig = null;
     
     private String securityCallbackURL = null;
+
+    private boolean enabled = true;
     
     @Inject
     private InternalAuthenticator internalAuthenticator;
@@ -39,7 +41,11 @@ public class SecurityFilter implements Filter {
         if (debug) {
             log("SecurityFilter:DoBeforeProcessing");
         }
-        
+       
+        if (!this.enabled){
+            return true;
+        }
+ 
         //skip this for webdav
         if (request.getServletPath().equals("/org.drools.guvnor.GuvnorDrools/webdav") || request.getServletPath().equals("/org.drools.guvnor.Guvnor/webdav")){
             return true;
@@ -185,6 +191,16 @@ public class SecurityFilter implements Filter {
             }
 
             this.securityCallbackURL = filterConfig.getInitParameter("securityCallbackURL");
+
+            String isEnabled = filterConfig.getInitParameter("enabled");
+            if (isEnabled != null){
+                this.enabled = Boolean.getBoolean(isEnabled);
+            }
+
+
+            if (!this.enabled){
+                return;
+            }
         }
 
         if (this.securityCallbackURL == null) {

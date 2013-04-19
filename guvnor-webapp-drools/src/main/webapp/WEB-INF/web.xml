@@ -21,6 +21,10 @@
         <filter-name>SSOFilter</filter-name>
         <filter-class>org.drools.guvnor.server.sso.SecurityFilter</filter-class>
         <init-param>
+            <param-name>enabled</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <init-param>
             <param-name>securityCallbackURL</param-name>
             <param-value>/SecurityCallBackServlet</param-value>
         </init-param>
