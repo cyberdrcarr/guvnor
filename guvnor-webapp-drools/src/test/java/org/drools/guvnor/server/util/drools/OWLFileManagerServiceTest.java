@@ -54,7 +54,9 @@ public class OWLFileManagerServiceTest extends GuvnorIntegrationTest {
         
         String packageName = "org.drools.guvnor.test.fact";
         
-        InputStream in = OWLFileManagerServiceTest.class.getResourceAsStream("/org/drools/guvnor/server/util/sample_owl.ttl");
+        InputStream in = OWLFileManagerServiceTest.class.getResourceAsStream("/org/drools/guvnor/server/util/drools/sample_owl.ttl");
+        
+        assertNotNull("Testing .ttl file could not be found: sample_owl.tt", in);
         
         owlFileManagerService.importOWL(in);
 

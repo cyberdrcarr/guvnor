@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -82,7 +83,13 @@ public class OWLImporter {
         if (ontoModel.getAllPackageNames().isEmpty()){
             return ontoModel.getDefaultPackage();
         } else{
-            return ontoModel.getAllPackageNames().iterator().next();
+            //the last package name is usually the one we are looking for
+            Iterator<String> iterator = ontoModel.getAllPackageNames().iterator();
+            String pkg = null;
+            while (iterator.hasNext()){
+                 pkg = iterator.next();
+            }
+            return pkg;
         }
     }
     

@@ -29,6 +29,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import org.drools.guvnor.server.RepositoryCategoryService;
 import org.drools.guvnor.server.files.FileManagerService;
+import org.drools.guvnor.server.repository.Preferred;
 import org.drools.guvnor.server.util.drools.OWLImporter;
 import org.jboss.seam.security.annotations.LoggedIn;
 import org.jboss.seam.security.Identity;
@@ -40,7 +41,7 @@ import org.jboss.seam.security.Identity;
 @ApplicationScoped
 public class OWLFileManagerService {
 
-    @Inject
+    @Inject @Preferred
     private RulesRepository repository;
 
     @Inject
