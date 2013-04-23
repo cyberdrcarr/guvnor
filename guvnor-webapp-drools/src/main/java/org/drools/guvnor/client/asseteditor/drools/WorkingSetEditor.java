@@ -138,15 +138,23 @@ public class WorkingSetEditor extends Composite
 
             availFacts.setVisibleItemCount( 10 );
             validFacts.setVisibleItemCount( 10 );
-
+            
             if ( wsData.validFacts != null ) {
                 elem.addAll( Arrays.asList( wsData.validFacts ) );
+                Arrays.sort(wsData.validFacts);
                 for ( String factName : wsData.validFacts ) {
                     validFacts.addItem( factName );
                 }
             }
 
-            for ( String factName : sce.getFactTypes() ) {
+            String[] factTypes = new String[sce.getFactTypes().length];
+            
+            for (int i = 0; i < sce.getFactTypes().length; i++) {
+                factTypes[i] = sce.getFactTypes()[i];
+            }
+            Arrays.sort(factTypes);
+            
+            for ( String factName : factTypes ) {
                 if ( !elem.contains( factName ) ) {
                     availFacts.addItem( factName );
                 }
