@@ -609,6 +609,14 @@ public class AssetItem extends CategorisableItem {
             r[0] = fileName.substring( 0,
                                        fileName.lastIndexOf( ".model.drl" ) );
             r[1] = "model.drl";
+        } else if ( fileName.endsWith( ".drl.attached" ) ) {
+            r[0] = fileName.substring( 0,
+                                       fileName.lastIndexOf( ".drl.attached" ) );
+            r[1] = ".drl.attached";
+        } else if ( fileName.endsWith( ".modelDescriptor.attached" ) ) {
+            r[0] = fileName.substring( 0,
+                                       fileName.lastIndexOf( ".modelDescriptor.attached" ) );
+            r[1] = ".modelDescriptor.attached";
         } else {
             r[0] = fileName.substring( 0,
                                        fileName.lastIndexOf( "." ) );
