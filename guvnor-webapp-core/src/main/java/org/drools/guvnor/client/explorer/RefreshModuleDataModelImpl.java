@@ -23,6 +23,7 @@ public class RefreshModuleDataModelImpl implements RefreshModuleDataModelEvent.H
     }
 
     public void onRefreshModuleDataModel(RefreshModuleDataModelEvent refreshModuleDataModelEvent) {
-        refreshModuleDataModelEvent.getCallbackCommand().execute();
+        //This is already called by SCE
+        //refreshModuleDataModelEvent.getCallbackCommand().execute();
     }
 }

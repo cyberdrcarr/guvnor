@@ -39,7 +39,7 @@ public class BusinessProcessEditor extends DirtyableComposite
     EditorWidget {
 
     private String    modelUUID;
-    private Asset asset;
+    protected Asset asset;
     private Frame     frame;
 
     public BusinessProcessEditor(Asset asset,
@@ -52,8 +52,6 @@ public class BusinessProcessEditor extends DirtyableComposite
     }
 
     private void initWidgets() {
-        String name = "/"+ApplicationPreferences.getDesignerContext()+"/editor/?uuid=" + modelUUID + "&profile="+ApplicationPreferences.getDesignerProfile();
-
         /**
          EditorLauncher.HOSTED_MODE = Boolean.TRUE; // HACK to set it to HOSTED MODE
          if ( EditorLauncher.HOSTED_MODE.booleanValue() ) {
@@ -62,7 +60,7 @@ public class BusinessProcessEditor extends DirtyableComposite
              name = "/designer/editor";
          } **/
 
-        name = "/"+ApplicationPreferences.getDesignerContext()+"/editor/?uuid=" + modelUUID + "&profile="+ApplicationPreferences.getDesignerProfile();
+        String name = "/"+ApplicationPreferences.getDesignerContext()+"/editor/?uuid=" + modelUUID + "&profile="+ApplicationPreferences.getDesignerProfile();
         name = this.preprocessURL(name);
         name += "&securityToken="+SecurityPreferences.getInstance().getSecurityToken();
         frame = new Frame( name );

@@ -29,11 +29,9 @@ import org.drools.guvnor.client.rpc.Asset;
  */
 public class WorkingSetAwareBusinessProcessEditor extends BusinessProcessEditor {
 
-    private Asset asset;
     
     public WorkingSetAwareBusinessProcessEditor(Asset asset, RuleViewer viewer, ClientFactory clientFactory, EventBus eventBus) {
         super(asset, viewer, clientFactory, eventBus);
-        this.asset = asset;
     }
 
     /**
