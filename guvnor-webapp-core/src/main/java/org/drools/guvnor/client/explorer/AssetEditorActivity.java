@@ -13,8 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package org.drools.guvnor.client.explorer;
 
 import com.google.gwt.core.client.GWT;
@@ -38,7 +36,7 @@ public class AssetEditorActivity extends Activity {
     private EventBus eventBus;
 
     public AssetEditorActivity(AssetEditorPlace place,
-                               ClientFactory clientFactory) {
+            ClientFactory clientFactory) {
         this.clientFactory = clientFactory;
         this.place = place;
     }
@@ -64,37 +62,42 @@ public class AssetEditorActivity extends Activity {
     }
 
     private void loadRuleAsset(final AcceptItem tabbedPanel,
-                               final String uuid,
-                               final boolean[] loading) {
+            final String uuid,
+            final boolean[] loading) {
         clientFactory.getAssetService().loadRuleAsset( uuid,
                 createGenericCallback(
-                        tabbedPanel,
+                tabbedPanel,
                         loading ) );
     }
 
     private GenericCallback<Asset> createGenericCallback(final AcceptItem tabbedPanel,
-                                                             final boolean[] loading) {
+            final boolean[] loading) {
         return new GenericCallback<Asset>() {
             public void onSuccess(final Asset ruleAsset) {
-            	eventBus.fireEvent(new RefreshModuleDataModelEvent(ruleAsset.metaData.moduleName,
+                eventBus.fireEvent(new RefreshModuleDataModelEvent(ruleAsset.metaData.moduleName,
             	        createOnRefreshModuleDataModelCompletion( loading,
                                 ruleAsset )));
             }
 
             private Command createOnRefreshModuleDataModelCompletion(final boolean[] loading,
-                                                                   final Asset ruleAsset) {
+                    final Asset ruleAsset) {
                 return new Command() {
                     public void execute() {
-                        loading[0] = false;
-
-                        tabbedPanel.add(
-                                ruleAsset.getName(),
-                                new RuleViewerWrapper(
+                        
+                        synchronized (loading) {
+                            if (loading[0]) {
+                                tabbedPanel.add(
+                                        ruleAsset.getName(),
+                                        new RuleViewerWrapper(
                                         clientFactory,
                                         eventBus,
-                                        ruleAsset ) );
+                                        ruleAsset));
 
-                        LoadingPopup.close();
+                                LoadingPopup.close();
+                            }
+                            loading[0] = false;
+                        }
+
                     }
                 };
             }
